@@ -1,0 +1,91 @@
+{% extends 'attendance/base.html' %}
+{% load staticfiles %}
+{% block content %}
+            {% if user.is_authenticated %}
+                <div class="page-container">
+
+                    <h2 class="top-menu">Hello {{ user.username }},</h2>
+                    <p>Please choose from below options.</p>
+
+                </div>
+            {% endif %}
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-3"  style="left:0">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>Student List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:student_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="left:0%">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>Mentor List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:mentor_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="left:0%">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>Semester List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:semester_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="left:0%">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>Week List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:week_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="left:0%">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>School List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:school_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="left:0%">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h2>Meeting List</h2>
+                                            <p><a class="btn btn-primary" href="{% url 'mentor:meeting_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'attendance/base.html' %}
+{% load static %}
+{% block content %}
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>OMK</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+    <body>
+    <style>
+        body {
+            background-color: beige;
+        }
+    </style>
+    <div class="row">
+        <h2 style="padding-left: 15Px">List of Weeks</h2>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Week Number</th>
+                <th>Week Start Date</th>
+                <th colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for week in weeks %}
+                <tr>
+                    <td>{{ week.week_number }}</td>
+                    <td>{{ week.week_startdate }}</td>
+                    <td><a href="{% url 'mentor:week_edit' pk=week.pk %}" class="btn btn-warning">Edit</a></td>
+                    <td><a href="{% url 'mentor:week_delete' pk=week.pk %}"
+                           onclick="return confirm('Are you sure you want to delete?')"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+                 <a href="{% url 'mentor:week_new' %}" class="row"><span
+                            class="btn btn-primary">Add Week</span></a>
+        </div>
+    </div>
+    </body>
+    </html>
+{% endblock %}

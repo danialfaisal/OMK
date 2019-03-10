@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+{% extends 'attendance/base.html' %}
+{% block content %}
+
+
+
+<div class="row">
+
+    <h1 style="padding-left: 15Px">Mentor: {{ meetings.0.mentor }}</h1>
+    <h1 style="padding-left: 15Px">Semester: {{ meetings.0.semester }}</h1>
+
+
+    <div class="row">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Week Number</th>
+                <th>Week Start Date</th>
+                <th>Student</th>
+                <th>Present</th>
+                <th>Meeting Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for meeting in meetings %}
+                <tr>
+                    <td>{{ meeting.week }}</td>
+                    <td>{{ meeting.stud_name }}</td>
+                    <td>{{ meeting.present }}</td>
+                    <td>{{ meeting.notes }}</td>
+                    <td><a href="{% url 'employee:update_attendance' pk=meeting.pk %}" class="btn btn-warning">Update Attendance/Notes</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
