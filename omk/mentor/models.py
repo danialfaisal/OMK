@@ -5,7 +5,13 @@ from django.core.validators import RegexValidator
 from django.core.validators import MinLengthValidator
 from django.core.validators import MaxLengthValidator
 
+
 regex=r'[0-9]'
+
+gender_choices = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+)
 
 # Create your models here.
 class Semester(models.Model):
@@ -38,10 +44,7 @@ class School(models.Model):
 
 class Student(models.Model):
 
-    gender_choices = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-    )
+
 
     stud_id = models.CharField(max_length=50, unique=True, db_index=True)
     stud_name = models.CharField(max_length=20, blank=False)
@@ -75,7 +78,7 @@ class Student(models.Model):
 class Mentor(models.Model):
     mentor_id = models.CharField(max_length=50, unique=True, db_index=True)
     mentor_name = models.CharField(max_length=20, blank=False)
-    mentor_gender = models.CharField(max_length=10, null=True, help_text="Enter F or M")
+    mentor_gender = models.CharField(max_length=1, choices=gender_choices, default='M')
     mentor_address = models.CharField(max_length=200)
     mentor_city = models.CharField(max_length=50)
     mentor_state = models.CharField(max_length=50)
