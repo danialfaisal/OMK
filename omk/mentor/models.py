@@ -117,7 +117,7 @@ class Meeting(models.Model):
     stud_name = models.ForeignKey(Student,related_name='studentname', on_delete=models.CASCADE)
     meeting_time = models.TimeField(blank=False)
     attendance = models.CharField(max_length=1, choices=attendance_choices, default='P')
-    notes= models.CharField(max_length=250,default='meeting notes')
+    notes= models.TextField(max_length=250,default='meeting notes')
 
     def __str__(self):
         return str(self.id)
