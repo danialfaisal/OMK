@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>OMK</title>
+    <title>Table V04</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -90,7 +91,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'attendance:contactus' %}">Contact Us</a></li>
+                <li><a href="{% url 'attendance:contactus' %}">Contact Admin</a></li>
                 <li><a href="{% url 'attendance:faq' %}">FAQ</a></li>
                 {% if user.is_authenticated %}
                     <i class='far fa-user' style='font-size:48px;color:white;'></i>

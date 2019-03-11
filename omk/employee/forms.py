@@ -5,4 +5,4 @@ from mentor.models import Meeting
 class AttendanceForm(forms.ModelForm):
    class Meta:
        model = Meeting
-       fields = ('present', 'notes',)
+       fields = ('attendance', 'notes',)

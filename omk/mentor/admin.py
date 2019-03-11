@@ -27,7 +27,7 @@ class  MentorList(admin.ModelAdmin):
     list_display = ('mentor_id','mentor_name','mentor_email')
 
 class  MeetingList(admin.ModelAdmin):
-    list_display = ('semester','week','mentor', 'stud_name', 'meeting_time', 'present')
+    list_display = ('semester','week','mentor', 'stud_name', 'meeting_time', 'attendance')
 
 
 admin.site.register(Semester,SemesterList )

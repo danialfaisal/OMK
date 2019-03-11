@@ -29,4 +29,4 @@ class MentorForm(forms.ModelForm):
 class MeetingForm(forms.ModelForm):
    class Meta:
        model = Meeting
-       fields = ('semester', 'week', 'mentor', 'stud_name', 'meeting_time', 'present', 'notes',)
+       fields = ('semester', 'week', 'mentor', 'stud_name', 'meeting_time', 'attendance', 'notes',)

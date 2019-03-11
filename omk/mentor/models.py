@@ -37,10 +37,16 @@ class School(models.Model):
 
 
 class Student(models.Model):
+
+    gender_choices = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+    )
+
     stud_id = models.CharField(max_length=50, unique=True, db_index=True)
     stud_name = models.CharField(max_length=20, blank=False)
     stud_dob = models.DateField()
-    stud_gender = models.CharField(max_length=10, null=True, help_text="Enter F or M")
+    stud_gender = models.CharField(max_length=1, choices=gender_choices, default='M')
     stud_address = models.CharField(max_length=200)
     stud_city = models.CharField(max_length=50)
     stud_state = models.CharField(max_length=50)
@@ -95,12 +101,19 @@ class Mentor(models.Model):
 
 
 class Meeting(models.Model):
+
+    attendance_choices = (
+        ('P', 'Present'),
+        ('A', 'Absent'),
+        ('T', 'Tardy'),
+    )
+
     semester = models.ForeignKey(Semester, related_name='semester', on_delete=models.CASCADE)
     week = models.ForeignKey(Week, related_name='weeknumber', on_delete=models.CASCADE)
     mentor = models.ForeignKey(Mentor, related_name='mentorname', on_delete=models.CASCADE)
     stud_name = models.ForeignKey(Student,related_name='studentname', on_delete=models.CASCADE)
     meeting_time = models.TimeField(blank=False)
-    present = models.BooleanField(default=False)
+    attendance = models.CharField(max_length=1, choices=attendance_choices, default='P')
     notes= models.CharField(max_length=250,default='meeting notes')
 
     def __str__(self):

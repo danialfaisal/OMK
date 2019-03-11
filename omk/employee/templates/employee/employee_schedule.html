@@ -16,7 +16,7 @@
             <tr class="bg-info">
                 <th>Week Number</th>
                 <th>Student</th>
-                <th>Present</th>
+                <th>Attendance</th>
                 <th>Meeting Notes</th>
             </tr>
             </thead>
@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{ meeting.week }}</td>
                     <td>{{ meeting.stud_name }}</td>
-                    <td>{{ meeting.present }}</td>
+                    <td>{{ meeting.attendance }}</td>
                     <td>{{ meeting.notes }}</td>
                     <td><a href="{% url 'employee:update_attendance' pk=meeting.pk %}" class="btn btn-warning">Update Attendance/Notes</a></td>
                 </tr>
